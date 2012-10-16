@@ -1,0 +1,18 @@
+{
+	"auto_upgrade_last_run": 1350424602,
+	"installed_packages":
+	[
+		"DocBlockr",
+		"Git",
+		"Indent XML",
+		"INI",
+		"Package Control",
+		"SideBarEnhancements",
+		"SideBarGit",
+		"SublimeLinter",
+		"SublimeLog",
+		"Tag",
+		"Wrap Plus",
+		"ZenCoding"
+	]
+}

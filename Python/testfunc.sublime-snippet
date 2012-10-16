@@ -1,0 +1,15 @@
+<snippet>
+    <content><![CDATA[
+class Test_${1:somefunc}(unittest.TestCase):
+    def _callFUT(self, ${2}):
+        from ${3} import $1
+        return $1($2)
+
+    def test_it(self):
+	      result = self._callFUT($2)
+        self.assertEqual(result, None)
+]]></content>
+    <tabTrigger>tf</tabTrigger>
+    <scope>source.python</scope>
+    <description>Adds a unittest TestCase skeleton for a function at current pointer</description>
+</snippet>

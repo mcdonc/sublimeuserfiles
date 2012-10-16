@@ -1,0 +1,15 @@
+Red (Comment)
+#FFFFFF
+
+Purple (Keywords):
+#A020F0
+
+Blue (function names):
+#0000FF
+
+Pink (strings):
+#CD9B9B
+
+Green (class names):
+#228B22
+

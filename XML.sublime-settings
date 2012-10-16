@@ -1,0 +1,17 @@
+{
+	"draw_indent_guides": true,
+	"extensions":
+	[
+		"xml",
+		"xsd",
+		"xslt",
+		"svg",
+		"pt"
+	],
+	"gutter": true,
+	"rulers":
+	[
+		120
+	],
+	"tab_size": 2
+}
