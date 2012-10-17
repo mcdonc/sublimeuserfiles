@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+
+import os
+
+def find(path, filename):
+    p = os.path.realpath(path)
+    if os.path.isfile(path):
+        return find(os.path.dirname(p), filename)
+    if filename in os.listdir(p):
+        return p
+    next, this = os.path.split(p)
+    if os.path.dirname(next) == next:
+        return None
+    return find(next, filename)
+
+def main():
+    cwd = os.getcwd()
+    print cwd
+    location = find(cwd, 'test')
+    if location is not None:
+        os.chdir(location)
+        os.system('./test')
+    else:
+        print "Could not find test"
+
+if __name__ == '__main__':
+    main()
