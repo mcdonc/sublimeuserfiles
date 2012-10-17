@@ -5,6 +5,7 @@
 		"pt"
 	],
 	"gutter": true,
+    "line_numbers": true,
 	"rulers":
 	[
         100
