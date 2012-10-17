@@ -1,0 +1,95 @@
+#!/usr/bin/env python
+
+# tidy_pt_wrapper lint wrapper for Chameleon and ZPT templates.  Written to
+# run under SublimeLinter, but will probably work elsewhere.
+#
+# When run from the command line it invokes tidy-html5 and scrapes and
+# modifies its stderr output when acting as a filter, e.g.
+#
+#   tidy_pt_wrapper < some.pt
+#
+# When run like this, it omits errors and warnings from tidy-html5 output
+# related to:
+#
+# - "<(metal|tal):.*?> is not recognized!" errors
+#
+# - warnings about proprietary "tal:" and "metal:" namespace attributes
+#
+# - warnings about discarding unexpected <tal:foo>, </tal:foo> / <metal:foo>,
+#   </metal:foo>
+#
+# - warning about missing DOCTYPE declaration
+#
+# - warning "inserting implicit <body>"
+#
+# - warning "inserting missing 'title' element"
+#
+# It preserves all other errors and warnings.
+#
+# Configuration for Sublime Text 2:
+#
+# Add this command as ``tidy_pt_wrapper`` to your $PATH
+#
+# Edit Preferences -> Package Settings -> SublimeLinter -> Settings: User
+#
+# Add this key to the dictionary there:
+#
+#    "sublimelinter_executable_map": {"html":"tidy_pt_wrapper"}
+#
+
+import subprocess
+import sys
+import re
+import os
+import fileinput
+
+ignore = []
+
+prefix = "line \d+ column \d+ - (Warning|Error): "
+
+def add_ignore(pattern):
+    ignore.append(re.compile(prefix + pattern))
+
+add_ignore("<(metal|tal):.*?> is not recognized!")
+add_ignore("missing <!DOCTYPE> declaration")
+add_ignore("inserting implicit <body>")
+add_ignore("inserting missing 'title' element")
+add_ignore('(.+?) proprietary attribute "(metal|tal):.*"')
+add_ignore('discarding unexpected <(/?metal|/?tal):.*')
+
+def main():
+    if not os.environ.get('HTML_TIDY'):
+        os.environ['HTML_TIDY'] = os.path.expanduser('~/.tidy-config')
+
+    command = 'tidy'
+
+    if sys.argv[1:]:
+        command = '%s %s' % (command, ' '.join(sys.argv[1:]))
+
+    p = subprocess.Popen(
+        command, bufsize=-1, stdout=subprocess.PIPE, 
+        stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True
+        )
+
+    # linter uses -v to check capability; we dont want to try to read from
+    # stdin when this happens
+    if sys.argv[-1] != '-v': 
+        for line in fileinput.input('-'):
+            p.stdin.write(line)
+
+    result, err = p.communicate()
+
+    sys.stdout.write(result)
+
+    for line in err.split('\n'):
+        ok = True
+        for regex in ignore:
+            if regex.search(line):
+                ok = False
+                break
+        if ok:
+            sys.stderr.write(line + '\n')
+            sys.stderr.flush()
+
+if __name__ == '__main__':
+    main()
