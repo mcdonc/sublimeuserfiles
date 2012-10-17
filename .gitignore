@@ -2,3 +2,4 @@
 *~
 .*.swp
 Package Control.sublime-settings
+*.cache
