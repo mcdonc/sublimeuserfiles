@@ -1,0 +1,10 @@
+<snippet>
+  <content><![CDATA[
+<div metal:use-macro="base.macros()['master']">
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:metal="http://xml.zope.org/namespaces/tal">
+</div>
+]]></content>
+  <tabTrigger>ptx</tabTrigger>
+  <description>New Chameleon / ZPT page template</description>
+</snippet>
