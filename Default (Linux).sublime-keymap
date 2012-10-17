@@ -74,6 +74,8 @@
   // Cause tab to reindent in general
 
   { "keys": ["tab"], "command": "reindent"},
+  { "keys": ["ctrl+tab"], "command": "indent"},
+  { "keys": ["shift+tab"], "command": "unindent"},
 
   // // But allow snippet completion to work via tab
 

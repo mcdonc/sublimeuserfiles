@@ -5,13 +5,12 @@
 		"xml",
 		"xsd",
 		"xslt",
-		"svg",
-		"pt"
+		"svg"
 	],
 	"gutter": true,
 	"rulers":
 	[
-		120
+		100
 	],
 	"tab_size": 2
 }
