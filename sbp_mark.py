@@ -12,7 +12,16 @@ class SbpCancelMarkCommand(sublime_plugin.TextCommand):
             self.view.erase_regions("mark")
             self.view.sel().clear()
             self.view.sel().add(sublime.Region(m[0].end(), m[0].end()))
-
+        else:
+            # clear the goddamn selection no matter what
+            point = self.view.sel()[0]
+            begin = point.begin()
+            end = point.end()
+            self.view.run_command("single_selection")
+            #self.view.sel().add(sublime.Region(begin, end))
+            if begin != end:
+                self.view.run_command("move", {'by':'characters', 'forward':True})
+                self.view.run_command("move", {'by':'characters', 'forward':False})
 
 class SbpSetMarkCommand(sublime_plugin.TextCommand):
     def run(self, edit):
