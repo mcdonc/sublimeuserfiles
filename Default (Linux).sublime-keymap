@@ -235,18 +235,10 @@
   
   // Layouts
 
+  { "keys": ["ctrl+x", "g"], "command": "clone_file" },
+
   { "keys": ["ctrl+x", "5", "2"], "command": "new_window" },
 
-  {
-    "keys": ["ctrl+x", "2"],
-    "command": "set_layout",
-    "args":
-    {
-      "cols": [0.0, 1.0],
-      "rows": [0.0, 0.5, 1.0],
-      "cells": [[0, 0, 1, 1], [0, 1, 1, 2]]
-    }
-  },
   {
     "keys": ["ctrl+x", "1"],
     "command": "set_layout",
@@ -257,8 +249,9 @@
       "cells": [[0, 0, 1, 1]]
     }
   },
+
   {
-    "keys": ["ctrl+x", "3"],
+    "keys": ["ctrl+x", "2"],
     "command": "set_layout",
     "args":
     {
@@ -267,6 +260,41 @@
       "cells": [[0, 0, 1, 1], [1, 0, 2, 1]]
     }
   },
+
+  {
+    "keys": ["ctrl+x", "left"],
+    "command": "set_layout",
+    "args":
+    {
+        "cols": [0.0, 0.33, 1.0],
+        "rows": [0.0, 1.0],
+        "cells": [[0, 0, 1, 1], [1, 0, 2, 1]]
+    }
+  },
+
+  {
+    "keys": ["ctrl+x", "right"],
+    "command": "set_layout",
+    "args":
+    {
+        "cols": [0.0, 0.66, 1.0],
+        "rows": [0.0, 1.0],
+        "cells": [[0, 0, 1, 1], [1, 0, 2, 1]]
+    }
+  },
+
+  {
+    "keys": ["ctrl+x", "up"],
+    "command": "set_layout",
+    "args":
+    {
+      "cols": [0.0, 1.0],
+      "rows": [0.0, 1.0],
+      "cells": [[0, 0, 1, 1]]
+    }
+  },
+
+
 
   // ctrl-s/ctrl-r behavior: Use find panel rather than incremental find panel
   // as incremental search panel doesn't retain last

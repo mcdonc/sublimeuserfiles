@@ -4,5 +4,8 @@
 	"sublimelinter_gutter_marks": true,
     "javascript_linter":"jshint",
     "jshint_options":{"trailing":false},
-    "sublimelinter_executable_map": {"html":"tidy_pt_wrapper"}
+    "sublimelinter_executable_map": {"html":"tidy_pt_wrapper"},
+    "sublimelinter_notes": true,
+    // The set of annotation phrases to highlight
+    "annotations": ["TODO", "README", "FIXME", "XXX"]
 	}

@@ -11,9 +11,9 @@
 # When run like this, it omits errors and warnings from tidy-html5 output
 # related to:
 #
-# - "<(metal|tal):.*?> is not recognized!" errors
+# - "<(metal|tal|i18n):.*?> is not recognized!" errors
 #
-# - warnings about proprietary "tal:" and "metal:" namespace attributes
+# - warnings about proprietary "tal:", "metal:" and "i18n:" namespace attributes
 #
 # - warnings about discarding unexpected <tal:foo>, </tal:foo> / <metal:foo>,
 #   </metal:foo>
@@ -54,8 +54,8 @@ add_ignore("<(metal|tal):.*?> is not recognized!")
 add_ignore("missing <!DOCTYPE> declaration")
 add_ignore("inserting implicit <body>")
 add_ignore("inserting missing 'title' element")
-add_ignore('(.+?) proprietary attribute "(metal|tal):.*"')
-add_ignore('discarding unexpected <(/?metal|/?tal):.*')
+add_ignore('(.+?) proprietary attribute "(metal|tal|i18n):.*"')
+add_ignore('discarding unexpected <(/?metal|/?tal|/?i18n):.*')
 
 def main():
     if not os.environ.get('HTML_TIDY'):

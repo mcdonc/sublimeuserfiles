@@ -31,6 +31,10 @@
 )
 """
 
+EXTMAP = {
+    '.pt':'.html',
+    }
+
 import subprocess
 import tempfile
 import os
@@ -66,12 +70,16 @@ class EmacsReindentCommand(sublime_plugin.TextCommand):
         content = self.view.substr(region).encode('utf-8')
         fp.write(content)
         fp.flush()
-        htmlname = tmpnam+'.html'
-        os.rename(tmpnam, htmlname)
+        fname = os.path.split(self.view.file_name())[-1]
+        _, ext = os.path.splitext(fname)
+        ext = EXTMAP.get(ext, ext)
+        extname = tmpnam+ext
+        print extname
+        os.rename(tmpnam, extname)
         packages_path = sublime.packages_path()
         ohmygodpath = os.path.join(packages_path, 'User', 'ohmygodemacs.elisp')
         command = ('emacs --no-site-file -batch %s -l %s -f '
-                   'emacs-format-function' % (htmlname, ohmygodpath))
+                   'emacs-format-function' % (extname, ohmygodpath))
         p = subprocess.Popen(
             command, bufsize=-1, stdout=subprocess.PIPE, 
             stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True
