@@ -43,6 +43,7 @@ import sublime_plugin
 
 class EmacsReindentCommand(sublime_plugin.TextCommand):
     def run(self, edit):
+        print (self.view.file_name())
         if self.view.sel()[0].size() > 0:
             self.cursor = None
             for region in self.view.sel():
@@ -70,11 +71,11 @@ class EmacsReindentCommand(sublime_plugin.TextCommand):
         content = self.view.substr(region).encode('utf-8')
         fp.write(content)
         fp.flush()
-        fname = os.path.split(self.view.file_name())[-1]
+        file_name = self.view.file_name()
+        fname = os.path.split(file_name)[-1]
         _, ext = os.path.splitext(fname)
         ext = EXTMAP.get(ext, ext)
         extname = tmpnam+ext
-        print extname
         os.rename(tmpnam, extname)
         packages_path = sublime.packages_path()
         ohmygodpath = os.path.join(packages_path, 'User', 'ohmygodemacs.elisp')
@@ -85,8 +86,10 @@ class EmacsReindentCommand(sublime_plugin.TextCommand):
             stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True
             )
         result, err = p.communicate()
-        if err != "":
-            self.view.set_status('emacs_reindent', "emacs_reindent: "+err)
+        if err:
+            self.view.set_status(
+                'emacs_reindent', "emacs_reindent: "+err.decode('utf-8')
+                )
             sublime.set_timeout(self.clear,10000)
         else:
             self.view.replace(

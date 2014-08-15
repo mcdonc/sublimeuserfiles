@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-  <!--
-Red (Comment)
-#B22222
-
-Purple (Keywords):
-#A020F0
-
-Blue (function names):
-#0000FF
-
-Pink (strings):
-#CD9B9B
-
-Green (class names):
-#228B22
--->
+  
 <dict>
 	<key>author</key>
 	<string>Chris McDonough</string>
@@ -36,7 +21,7 @@ Green (class names):
 				<key>invisibles</key>
 				<string>#BFBFBF</string>
 				<key>lineHighlight</key>
-				<string>#000000</string>
+				<string>#FFFFFF</string>
 				<key>selection</key>
 				<string>#BAD6FD</string>
 			</dict>
@@ -69,7 +54,7 @@ Green (class names):
 			<key>scope</key>
 			<string>constant.numeric</string>
 			<key>settings</key>
-			<dict/>
+			<dict />
 		</dict>
 		<dict>
 			<key>name</key>
@@ -88,7 +73,7 @@ Green (class names):
 			<key>scope</key>
 			<string>constant.character, constant.other</string>
 			<key>settings</key>
-			<dict/>
+			<dict />
 		</dict>
 		<dict>
 			<key>name</key>
@@ -96,7 +81,7 @@ Green (class names):
 			<key>scope</key>
 			<string>variable.language, variable.other</string>
 			<key>settings</key>
-			<dict/>
+			<dict />
 		</dict>
 		<dict>
 			<key>name</key>
@@ -137,7 +122,7 @@ Green (class names):
 			<key>scope</key>
 			<string>entity.other.inherited-class</string>
 			<key>settings</key>
-			<dict/>
+			<dict />
 		</dict>
 		<dict>
 			<key>name</key>
@@ -156,7 +141,7 @@ Green (class names):
 			<key>scope</key>
 			<string>variable.parameter</string>
 			<key>settings</key>
-			<dict/>
+			<dict />
 		</dict>
 		<dict>
 			<key>name</key>
@@ -164,7 +149,7 @@ Green (class names):
 			<key>scope</key>
 			<string>entity.name.tag</string>
 			<key>settings</key>
-			<dict/>
+			<dict />
 		</dict>
 		<dict>
 			<key>name</key>
@@ -172,7 +157,7 @@ Green (class names):
 			<key>scope</key>
 			<string>entity.other.attribute-name</string>
 			<key>settings</key>
-			<dict/>
+			<dict />
 		</dict>
 		<dict>
 			<key>name</key>
@@ -239,12 +224,42 @@ Green (class names):
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string></string>
+				<string />
 				<key>foreground</key>
 				<string>#990000</string>
 			</dict>
 		</dict>
-	</array>
+	<dict>
+            <key>name</key>
+            <string>SublimeLinter Error</string>
+            <key>scope</key>
+            <string>sublimelinter.mark.error</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#D02000</string>
+            </dict>
+        </dict><dict>
+            <key>name</key>
+            <string>SublimeLinter Warning</string>
+            <key>scope</key>
+            <string>sublimelinter.mark.warning</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#DDB700</string>
+            </dict>
+        </dict><dict>
+            <key>name</key>
+            <string>SublimeLinter Gutter Mark</string>
+            <key>scope</key>
+            <string>sublimelinter.gutter-mark</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#FFFFFF</string>
+            </dict>
+        </dict></array>
 	<key>uuid</key>
 	<string>DDC0CBE1-442B-4CB5-80E4-26E4CFB3A277</string>
 </dict>

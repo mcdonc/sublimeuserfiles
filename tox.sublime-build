@@ -1,5 +1,5 @@
 {
-    "cmd": ["findtox"],
+    "cmd": ["tox"],
     "working_dir": "${file_path:${folder}}",
     "selector":"source.python"
 }
