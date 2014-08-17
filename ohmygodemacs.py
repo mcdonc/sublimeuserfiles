@@ -33,6 +33,7 @@
 
 EXTMAP = {
     '.pt':'.html',
+    '.sublime-keymap':'.json'
     }
 
 import subprocess
