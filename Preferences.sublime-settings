@@ -61,5 +61,6 @@
 	"sbp_active_mark_mode": true,
 	"translate_tabs_to_spaces": true,
 	"word_wrap": "auto",
-	"wrap_paragraph": 79
+	"wrap_paragraph": 79,
+    "preview_on_click":false
 }

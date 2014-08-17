@@ -8,6 +8,11 @@
   { "keys": ["ctrl+0"], "command": "toggle_record_macro" },
   { "keys": ["escape", "x"], "command": "emacs_reindent" },
   { "keys": ["escape", "q"], "command": "wrap_lines_plus" },
+  { "keys": ["escape", "w"], "command": "sbp_kill_region", "args": {"is_copy": true}},
+
+  // override sublemacs keybindings that i disagree with
+  { "keys": ["ctrl+v"], "command": "paste" },
+  { "keys": ["ctrl+d"], "command": "find_under_expand" },
 
   //python-y
   { 
@@ -75,6 +80,12 @@
       "rows": [0.0, 1.0],
       "cells": [[0, 0, 1, 1]]
     }
+  },
+
+  // reenable default keybiding for goto definition
+  // overridden by SideBarEnhancements
+  { "keys": ["f12"],
+  "command": "goto_definition"
   }
 
 ]
